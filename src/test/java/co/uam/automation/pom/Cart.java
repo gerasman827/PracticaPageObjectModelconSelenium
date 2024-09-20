@@ -12,6 +12,9 @@ public class Cart extends BasePage {
     public By cart = By.id("cartur");
     public By placeOrder = By.xpath("//button[text()='Place Order']");
     public By purchaseOrder = By.xpath("//button[text()='Purchase']");
+    public By amount = By.xpath("/html/body/div[10]/p/text()[2]");
+    public By totalCart = By.id("totalp");
+
 
     // form place order
     public By nameFormPlaceOrder = By.id("name");
@@ -52,4 +55,19 @@ public class Cart extends BasePage {
         click(purchaseOrder);
     }
 
+    public String totalCartText() {
+        return getText(this.totalCart);
+    }
+
+    public String getAmountText() {
+        return getText(this.amount);
+    }
+
+    public void toBack() {
+        super.navigateToBack();
+    }
+
+    public void closeAlert(){
+        super.closeAlertjs();
+    }
 }

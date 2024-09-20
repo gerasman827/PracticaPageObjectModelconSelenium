@@ -1,5 +1,6 @@
 package co.uam.automation.pom;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,5 +51,15 @@ public class BasePage {
     public WebElement getProduct(String productName) {
         WebElement product = driver.findElement(By.xpath("//a[text()='" + productName + "']"));
         return product;
+    }
+
+    public void closeAlertjs() {
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+    public void navigateToBack(){
+        //driver.navigate().back();
+        driver.navigate().to("https://www.demoblaze.com/index.html");
     }
 }
